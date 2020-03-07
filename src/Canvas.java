@@ -38,11 +38,53 @@ public class Canvas {
     }
 
     /**
+     * Печатаем переданную фигуру в указанных координатах символом с.
+     * Если переданный массив содержит '1', то на холсте ему будет соответсвовать символ 'c'.
+     *
+     */
+
+    void drawMatrix(int x, int y, int[][] matrix, char c) {
+        int height = matrix.length;
+        int width = matrix[0].length;
+
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                if (matrix[i][j] == 1)
+                    setPoint(x + j, y + i, c);
+            }
+        }
+    }
+
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public void setMatrix(char[][] matrix) {
+        this.matrix = matrix;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public char[][] getMatrix() {
+        return matrix;
+    }
+
+    /**
      * Вывод на экран
      */
 
     void print() {
-
         for (int i = 0; i < height + 2; i++) {
             for (int j = 0; j < width + 2; j++) {
                 System.out.print(" ");
@@ -51,7 +93,12 @@ public class Canvas {
             }
             System.out.println();
         }
-
     }
+
+    /**
+     * Рисуем объекты на матрице
+     */
+
+
 
 }
